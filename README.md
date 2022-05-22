@@ -21,6 +21,7 @@ To scan all ports from 1 through 65535 (**-p-**)
 139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
 
 445/tcp   open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
+
 1433/tcp  open  ms-sql-s     Microsoft SQL Server 2017 14.0
 
 5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
