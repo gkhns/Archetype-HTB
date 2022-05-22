@@ -1,5 +1,3 @@
- 10.129.95.187
-
 **NMAP Scan**
 
 ```sh
@@ -13,8 +11,7 @@ To perform a script scan using the default set of scripts (**-sC**)
 To scan all ports from 1 through 65535 (**-p-**)
 
 
-
-**Open Ports:**
+ Open Ports
 
 135/tcp   open  msrpc        Microsoft Windows RPC
 
@@ -39,6 +36,8 @@ To scan all ports from 1 through 65535 (**-p-**)
 49668/tcp open  msrpc        Microsoft Windows RPC
 
 49669/tcp open  msrpc        Microsoft Windows RPC
+
+**SMB Client**
 
 
 ```sh
