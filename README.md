@@ -55,7 +55,7 @@ One of the sharenames does not have the dollar sign (**backups**) --> Non-Admini
 
 
 ```sh
-  smbclient -N \\\10.129.95.187\\backups 
+  smbclient -N \\\\10.129.95.187\\backups 
   ```
 
 
