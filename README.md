@@ -48,11 +48,7 @@ One of the sharenames does not have the dollar sign (**backups**) --> Non-Admini
 
 **Impacket** to connect and authenticate to the MSSQL server
 
-Impacket is a collection of Python classes for working with network protocols.
-
-Impacket packet includes **mssqlclient.py** 
-
-An MSSQL client, supporting SQL and Windows Authentications (hashes too). It also supports TLS. **It can be used in order to establish an authenticated connection to a Microsoft SQL Server**.
+Impacket is a collection of Python classes for working with network protocols. Impacket packet includes **mssqlclient.py**  An MSSQL client, supporting SQL and Windows Authentications (hashes too). It also supports TLS. **It can be used in order to establish an authenticated connection to a Microsoft SQL Server**.
 
 
 https://github.com/SecureAuthCorp/impacket
