@@ -13,37 +13,25 @@ To scan all ports from 1 through 65535 (**-p-**)
 
  Open Ports
 
-135/tcp   open  msrpc        Microsoft Windows RPC
+* 135/tcp   open  msrpc        Microsoft Windows RPC
+* 139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+* 445/tcp   open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
+* 1433/tcp  open  ms-sql-s     Microsoft SQL Server 2017 14.0
+* 5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+* 47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+* 49664/tcp open  msrpc        Microsoft Windows RPC
+* 49665/tcp open  msrpc        Microsoft Windows RPC
+* 49666/tcp open  msrpc        Microsoft Windows RPC
+* 49667/tcp open  msrpc        Microsoft Windows RPC
+* 49668/tcp open  msrpc        Microsoft Windows RPC
+* 49669/tcp open  msrpc        Microsoft Windows RPC
 
-139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
-
-445/tcp   open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
-
-1433/tcp  open  ms-sql-s     Microsoft SQL Server 2017 14.0
-
-5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-
-47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-
-49664/tcp open  msrpc        Microsoft Windows RPC
-
-49665/tcp open  msrpc        Microsoft Windows RPC
-
-49666/tcp open  msrpc        Microsoft Windows RPC
-
-49667/tcp open  msrpc        Microsoft Windows RPC
-
-49668/tcp open  msrpc        Microsoft Windows RPC
-
-49669/tcp open  msrpc        Microsoft Windows RPC
-
-**SMB Client**
+**SMB Client** to enumerate the SMB
 
 
 ```sh
   smbclient -N -L \\\\10.129.95.187\\
   ```
-
 
 List of shares (**-L**)
 
@@ -57,5 +45,17 @@ One of the sharenames does not have the dollar sign (**backups**) --> Non-Admini
 ```sh
   smbclient -N //10.129.95.187/backups
   ```
+
+**Impacket** to connect and authenticate to the MSSQL server
+
+Impacket is a collection of Python classes for working with network protocols.
+
+Impacket packet includes **mssqlclient.py** 
+
+An MSSQL client, supporting SQL and Windows Authentications (hashes too). It also supports TLS. **It can be used in order to establish an authenticated connection to a Microsoft SQL Server**.
+
+
+https://github.com/SecureAuthCorp/impacket
+
 
 
