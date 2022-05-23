@@ -140,3 +140,12 @@ We can use evil-winrm
 https://www.kali.org/tools/evil-winrm/
 
 
+```sh
+evil-winrm -u Administrator -p {PASSCODE} -i 10.129.95.187
+```
+![image](https://user-images.githubusercontent.com/99097743/169846841-1375fdb3-80e3-4749-ad4c-282cf92d3a62.png)
+
+
+
+
+
